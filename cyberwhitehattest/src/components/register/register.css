@@ -1,0 +1,46 @@
+.input-field {
+    display: flex;
+    height: 68px;
+    padding: 0px 24px;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 4px;
+    background: #303741;
+}
+
+.copy-button {
+    display: flex;
+    height: 68px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.left-section {
+    width: 50%;
+    text-align: center;
+}
+
+.right-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+img {
+    max-width: 500px;
+}
+
+.copy-button {
+    background: transparent;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.copy-button:hover {
+    background: #ddd;
+}
