@@ -5,10 +5,13 @@ import logo from '../../assets/bunnylogo.png';
 export default function Register() {
   return (
     <div className="register-container">
-      <div className="logo-section">
+      <div className="left-section">
         <img src={logo} alt="Logo" className="register-logo" />
+        <h2 className="register-heading">OI OI</h2>
+        <p className="register-description">Create your username</p>
       </div>
-      <div className="form-section">
+
+      <div className="right-section">
         <input
           type="text"
           placeholder="Enter username"
@@ -19,6 +22,3 @@ export default function Register() {
     </div>
   );
 }
-
-
-
