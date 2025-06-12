@@ -6,8 +6,8 @@ import './App.css'
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Register></Register>}/>
-      <Route path='/login' element={<Login/>} />
+      <Route path='/register' element={<Register />}/>
+      <Route path='/login' element={<Login />} />
     </Routes>
   );
 }
