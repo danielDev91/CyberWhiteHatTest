@@ -38,6 +38,30 @@ export default function Register() {
     navigator.clipboard.writeText(generatedPassword);
   };
 
+  const registerUser = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/register', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          username: username, 
+          password: generatedPassword
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('User registered successfully!');
+        navigate('/login');
+      } else {
+        alert('Error: ' + data.msg);
+      }
+    } catch (error) {
+      alert('Server error. Try again later.');
+    }
+  };
+
   return (
     <div className="register-fullscreen">
       <img src={logo} alt="Logo" className="register-logo" />
@@ -77,7 +101,7 @@ export default function Register() {
             </button>
             <span className="password-text">{generatedPassword}</span>
           </div>
-          <button className="register-button access-button" onClick={() => navigate('/login')}>Access</button>
+          <button className="register-button access-button" onClick={registerUser}>Access</button>
         </>
       )}
     </div>

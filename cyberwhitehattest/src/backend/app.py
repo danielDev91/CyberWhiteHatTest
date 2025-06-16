@@ -1,11 +1,13 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+CORS(app)
 
 client = MongoClient("mongodb://localhost:27017/")
-db = ['cyberwhitehatDB']
+db = client['cyberwhitehattest']
 users_collection = db['users']
 
 @app.route('/register', methods=['POST'])
@@ -34,6 +36,10 @@ def login():
         return jsonify({'msg': 'Invalid username or password'}), 401
 
     return jsonify
+
+@app.route('/')
+def home():
+    return jsonify({'msg': 'Server running!'})
 
 if __name__ == '__main__':
     app.run(debug=True)
