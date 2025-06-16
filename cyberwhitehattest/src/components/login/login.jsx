@@ -25,6 +25,11 @@ export default function Login() {
           className="login-input"
         />
 
+        {/* Access Button */}
+        <div className="access-button-container">
+          <button className="access-button">Access</button>
+        </div>
+
         <div className="login-links">
           <div className="login-link-block">
             <div className="arrow-icon">↗</div>
