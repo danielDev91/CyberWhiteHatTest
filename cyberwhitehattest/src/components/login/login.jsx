@@ -1,10 +1,37 @@
-import React from "react";
-import '../login/loginstyle.css';
-import logo from '../../assets/bunnylogo.png';
-import Register from "../register/register";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import "../login/loginstyle.css";
+import logo from "../../assets/bunnylogo.png";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, password })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.msg);
+        navigate("/pagetest");
+      } else {
+        const errorData = await response.json();
+        alert(errorData.msg);
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      alert("Something went wrong during login.");
+    }
+  };
+
   return (
     <div className="login-container">
       <div className="logo-left">
@@ -18,16 +45,21 @@ export default function Login() {
           type="text"
           placeholder="Username"
           className="login-input"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
           placeholder="Password"
           className="login-input"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
-        {/* Access Button */}
         <div className="access-button-container">
-          <button className="access-button">Access</button>
+          <button className="access-button" onClick={handleLogin}>
+            Access
+          </button>
         </div>
 
         <div className="login-links">

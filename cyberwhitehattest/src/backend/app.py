@@ -35,11 +35,11 @@ def login():
     if not user or not check_password_hash(user['password'], password):
         return jsonify({'msg': 'Invalid username or password'}), 401
 
-    return jsonify
+    return jsonify({'msg': 'Login successful'}), 200
 
 @app.route('/')
 def home():
-    return jsonify({'msg': 'Server running!'})
+    return jsonify({'msg': 'Server running!'}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
