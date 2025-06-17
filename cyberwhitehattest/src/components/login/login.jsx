@@ -31,6 +31,7 @@ export default function Login() {
       if (response.ok) {
         const data = await response.json();
         console.log(data.msg);
+        localStorage.setItem("isLoggedIn", "true");
         navigate("/pagetest");
       } else {
         const errorData = await response.json();
