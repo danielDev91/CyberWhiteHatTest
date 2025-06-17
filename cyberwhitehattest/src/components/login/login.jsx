@@ -9,6 +9,16 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
+
+    if (!username.trim()) {
+      alert("Please enter your username.");
+    }
+
+    if (!password.trim()) {
+      alert("Please enter your password.");
+      return;
+    }
+
     try {
       const response = await fetch("http://localhost:5000/login", {
         method: "POST",
@@ -28,7 +38,7 @@ export default function Login() {
       }
     } catch (error) {
       console.error("Login error:", error);
-      alert("Something went wrong during login.");
+      alert("Something went wrong during login. Please try again.");
     }
   };
 
