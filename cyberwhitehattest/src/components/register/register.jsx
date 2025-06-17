@@ -71,6 +71,7 @@ export default function Register() {
           <h2 className="register-heading">OI OI</h2>
           <p className="register-description">Create your username</p>
           <input
+            required
             type="text"
             placeholder="Enter username"
             value={username}
@@ -95,6 +96,7 @@ export default function Register() {
         <>
           <h2 className="register-heading">OI OI</h2>
           <p className="register-description">Your secure password below</p>
+          <p className="register-description">Please copy your password and save somewhere secure. <b>We recommend keepass.</b></p>
           <div className="password-display">
             <button className="copy-button" onClick={handleCopy}>
               Copy

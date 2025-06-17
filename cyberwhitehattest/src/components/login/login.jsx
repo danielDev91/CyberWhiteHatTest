@@ -42,6 +42,7 @@ export default function Login() {
 
       <div className="login-right">
         <input
+          required
           type="text"
           placeholder="Username"
           className="login-input"
@@ -49,6 +50,7 @@ export default function Login() {
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
+          required
           type="password"
           placeholder="Password"
           className="login-input"
